@@ -150,7 +150,7 @@ def htable_buckets_str(table):
 
     s = ""
 
-    for i in range(len(table) - 1 ):
+    for i in range(len(table)):
         s = s + str(i).rjust(4,'0') + \
             '->' + ", ".join([str(x[0]) +
             ':' + str(x[1]) for x in table[i]]) + '\n'
@@ -158,10 +158,7 @@ def htable_buckets_str(table):
         #   s = s + '\n'
         #s = s + '0'*3 + str(i) + '->\n'
     # add last row
-    s = s + str(4).rjust(4, '0') + \
-        '->' + ", ".join([str(x[0]) +
-                          ':' + str(x[1]) for x in table[4]])
-    
+
     return s
 # print "*"*10
 #
@@ -176,6 +173,8 @@ def htable_str(table):
     """
     # print table
     begin = htable_buckets_str(table).split("\n")
+    begin = filter(None, begin)
+    print begin
     # print begin
     # print 'hi'
     # print table[0]
@@ -191,5 +190,46 @@ dict = {'a':'hi', 'b':'bye'}
 
 table = htable(5)
 #print len(table)
-# print htable_buckets_str(table)
-# print htable_str(table)
+print htable_buckets_str(table)
+print htable_str(table)
+
+table = htable(5)
+htable_put(table, "parrt", 99)
+print htable_buckets_str(table)
+print htable_str(table)
+
+table = htable(5)
+htable_put(table, "parrt", set([99]))
+print htable_buckets_str(table)
+print htable_str(table)
+
+table = htable(5)
+for i in range(1, 11):
+    htable_put(table, i, i)
+print htable_buckets_str(table)
+print htable_str(table)
+
+table = htable(5)
+htable_put(table, "a", "x")
+htable_put(table, "b", "y")
+htable_put(table, "c", "z")
+htable_put(table, "f", "i")
+htable_put(table, "g", "j")
+htable_put(table, "k", "k")
+print htable_buckets_str(table)
+print htable_str(table)
+
+
+table = htable(5)
+htable_put(table, "parrt", [2, 99, 3942])
+htable_put(table, "tombu", [6, 3, 1024, 99, 102342])
+print htable_buckets_str(table)
+print htable_str(table)
+
+print [c for c in htable_buckets_str(table)]
+print [c for c in """0000->
+0001->tombu:[6, 3, 1024, 99, 102342]
+0002->
+0003->parrt:[2, 99, 3942]
+0004->
+"""]
