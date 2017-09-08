@@ -63,9 +63,9 @@ def htable_put(table, key, value):
         bucket.append((key, value))
 
 
-# table = htable(5)
-# key = 'f'
-# value = 99
+table = htable(5)
+key = 'f'
+value = 99
 # print "hashcode =", hashcode(key)
 # bucket_index = hashcode(key) % len(table)
 # print "bucket_index =", bucket_index
@@ -120,14 +120,27 @@ def htable_get(table, key):
     the association!). Return None if key not found.
     """
     bucket_index = hashcode(key) % len(table)
+
     #print bucket_index
-    for i in range(len(table)):
-        if table[bucket_index][i][0] == key:
-            return table[bucket_index][i][1]
-        else:
+    for i in range(len(table[bucket_index])):
+
+        if table[bucket_index]==[] or table[bucket_index][i]==None: # empty
             return None
+        else:
+            if table[bucket_index][i][0]==key:
+                return table[bucket_index][i][1]
+
+            #print 'hdfs'
+
+
+
+
 # print 'testssfd'
-# print htable_get(table, 'gddffffd')
+# print table
+# print htable_put(table, key, value)
+# print 'sfdsdfs'
+# print #print hashcode('fdddsddddsfa') & leprn(table)
+# print htable_get(table, 'f')
 
 
 def htable_buckets_str(table):
@@ -181,55 +194,55 @@ def htable_str(table):
     begin = ", ".join([begin[i][6:] for i in range(len(begin)) if table[i] != []])
     return '{' + begin + '}'
 
-
-dict = {'a':'hi', 'b':'bye'}
-
-# print str(dict)
-# print 'fdsfd'
+#
+# dict = {'a':'hi', 'b':'bye'}
+#
+# # print str(dict)
+# # print 'fdsfd'
+# # print htable_str(table)
+#
+# table = htable(5)
+# #print len(table)
+# print htable_buckets_str(table)
 # print htable_str(table)
-
-table = htable(5)
-#print len(table)
-print htable_buckets_str(table)
-print htable_str(table)
-
-table = htable(5)
-htable_put(table, "parrt", 99)
-print htable_buckets_str(table)
-print htable_str(table)
-
-table = htable(5)
-htable_put(table, "parrt", set([99]))
-print htable_buckets_str(table)
-print htable_str(table)
-
-table = htable(5)
-for i in range(1, 11):
-    htable_put(table, i, i)
-print htable_buckets_str(table)
-print htable_str(table)
-
-table = htable(5)
-htable_put(table, "a", "x")
-htable_put(table, "b", "y")
-htable_put(table, "c", "z")
-htable_put(table, "f", "i")
-htable_put(table, "g", "j")
-htable_put(table, "k", "k")
-print htable_buckets_str(table)
-print htable_str(table)
-
-
-table = htable(5)
-htable_put(table, "parrt", [2, 99, 3942])
-htable_put(table, "tombu", [6, 3, 1024, 99, 102342])
-print htable_buckets_str(table)
-print htable_str(table)
-
-print [c for c in htable_buckets_str(table)]
-print [c for c in """0000->
-0001->tombu:[6, 3, 1024, 99, 102342]
-0002->
-0003->parrt:[2, 99, 3942]
-0004->
-"""]
+#
+# table = htable(5)
+# htable_put(table, "parrt", 99)
+# print htable_buckets_str(table)
+# print htable_str(table)
+#
+# table = htable(5)
+# htable_put(table, "parrt", set([99]))
+# print htable_buckets_str(table)
+# print htable_str(table)
+#
+# table = htable(5)
+# for i in range(1, 11):
+#     htable_put(table, i, i)
+# print htable_buckets_str(table)
+# print htable_str(table)
+#
+# table = htable(5)
+# htable_put(table, "a", "x")
+# htable_put(table, "b", "y")
+# htable_put(table, "c", "z")
+# htable_put(table, "f", "i")
+# htable_put(table, "g", "j")
+# htable_put(table, "k", "k")
+# print htable_buckets_str(table)
+# print htable_str(table)
+#
+#
+# table = htable(5)
+# htable_put(table, "parrt", [2, 99, 3942])
+# htable_put(table, "tombu", [6, 3, 1024, 99, 102342])
+# print htable_buckets_str(table)
+# print htable_str(table)
+#
+# print [c for c in htable_buckets_str(table)]
+# print [c for c in """0000->
+# 0001->tombu:[6, 3, 1024, 99, 102342]
+# 0002->
+# 0003->parrt:[2, 99, 3942]
+# 0004->
+# """]

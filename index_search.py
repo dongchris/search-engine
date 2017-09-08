@@ -33,11 +33,26 @@ def index_search(files, index, terms):
     and look inside.
     """
 
-    indexlist = [index[terms[term]] for term in range(len(terms))]
 
+    termlist = set()
+
+    for i in range(len(terms)):
+            for j in range(len(terms[i].split(" "))):
+
+                termlist.add(terms[i].split(" ")[j])
+
+    indexlist = [index[w] for w in termlist]
+
+    print 'fdsf'
+    print index['hawaii']
+    print termlist
     intersect = list(set.intersection(*indexlist))
 
     return [files[x] for x in intersect]
 
-
-
+files = ["/home/chris/data/berlitz1/HistoryHawaii.txt",
+                       "/home/chris/data/berlitz1/HandRHongKong.txt",
+                        "/home/chris/data/berlitz1/HandRIbiza.txt"]
+index = create_index(files)
+# #
+print index_search(files, index, ["hawaii travel"])
