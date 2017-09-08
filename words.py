@@ -57,8 +57,7 @@ def results(docs, terms):
 
 
     for i in range(len(docs)):
-        # if i>100:
-        #     break
+        
         webpath = '<p><a href="file://'
         webpathname = docs[i] + '">' + docs[i]+ "</a><br>\n"
         webtext = get_text(docs[i])
@@ -85,16 +84,6 @@ def results(docs, terms):
         doclist.append(combine)
 
     return header + numfiles + "\n\n".join(doclist) + "\n\n</body>\n</html>"
-    #return doclist
-
-
-
-
- #   print header + numfiles + webpath + webpathname + webtext[1]
-#s = results(["/home/chris/data/slate/1/Article247_42.txt",
- #       "/home/chris/data/slate/10/Article247_3363.txt",
-  #      "/home/chris/data/slate/11/Article247_3408.txt"], ["reagan"])
-#print s
 
 def filenames(docs):
     """Return just the filenames from list of fully-qualified filenames"""

@@ -43,16 +43,6 @@ def index_search(files, index, terms):
 
     indexlist = [index[w] for w in termlist]
 
-    print 'fdsf'
-    print index['hawaii']
-    print termlist
     intersect = list(set.intersection(*indexlist))
 
     return [files[x] for x in intersect]
-
-files = ["/home/chris/data/berlitz1/HistoryHawaii.txt",
-                       "/home/chris/data/berlitz1/HandRHongKong.txt",
-                        "/home/chris/data/berlitz1/HandRIbiza.txt"]
-index = create_index(files)
-# #
-print index_search(files, index, ["hawaii travel"])
