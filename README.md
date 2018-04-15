@@ -10,7 +10,8 @@ Simply run ``python search.py <method> <path to data source>`` where method can 
 
 # Output
 
+``python search.py index ../../../../data/slate/``
+
 Searching for Japan in the Berlitz dataset gives the following output:
 
 <img src = "output.png">
-
