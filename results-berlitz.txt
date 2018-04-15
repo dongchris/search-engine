@@ -1,0 +1,26 @@
+============================= test session starts ==============================
+platform darwin -- Python 2.7.12, pytest-2.9.2, py-1.4.31, pluggy-0.3.1 -- /Users/parrt/anaconda2/bin/python
+cachedir: ../../../../.cache
+rootdir: /Users/parrt, inifile: 
+collecting ... collected 18 items
+
+test_berlitz.py::test_linear_berlitz_none PASSED
+test_berlitz.py::test_index_berlitz_none PASSED
+test_berlitz.py::test_myhtable_berlitz_none PASSED
+test_berlitz.py::test_hawaii_linear PASSED
+test_berlitz.py::test_hawaii_index PASSED
+test_berlitz.py::test_hawaii_myhtable PASSED
+test_berlitz.py::test_greek_linear PASSED
+test_berlitz.py::test_greek_index PASSED
+test_berlitz.py::test_greek_myhtable PASSED
+test_berlitz.py::test_lisbon_linear PASSED
+test_berlitz.py::test_lisbon_index PASSED
+test_berlitz.py::test_lisbon_myhtable PASSED
+test_berlitz.py::test_india_linear PASSED
+test_berlitz.py::test_india_index PASSED
+test_berlitz.py::test_india_myhtable PASSED
+test_berlitz.py::test_dublin_and_hawaii_linear PASSED
+test_berlitz.py::test_dublin_and_hawaii_index PASSED
+test_berlitz.py::test_dublin_and_hawaii_myhtable PASSED
+
+========================== 18 passed in 30.13 seconds ==========================
